@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کیان اقامت — رزروی هوشمند، اقامتی به یادماندنی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">K</span>
+      <span>کیان<span class="logo-light">اقامت</span></span>
+    </a>
+    <nav class="links">
+      <a href="#explore">جستجو</a>
+      <a href="#host">میزبان شوید</a>
+      <a href="#features">هوش مصنوعی</a>
+      <a href="#support">پشتیبانی</a>
+    </nav>
+    <button class="btn btn-ghost" id="langBtn">EN</button>
+    <button class="btn btn-primary btn-sm" onclick="openHost()">ورود / ثبت نام</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <span class="badge"><span class="dot"></span> قدرتگرفته از هوش مصنوعی</span>
+      <h1>اقامتگاهی پیدا کنید<br><span class="grad">که دقیقاً مناسب شماست</span></h1>
+      <p>جستجوی هوشمند، قیمتگذاری پویا و رزرو آنی — بدون فرمهای طولانی و بدون انتظار.</p>
+    </div>
+
+    <div class="search-card">
+      <div class="search-tabs">
+        <button class="stab active" data-type="stays">🏨 اقامتگاه</button>
+        <button class="stab" data-type="cars">🚗 خودرو</button>
+        <button class="stab" data-type="tours">🧭 تور</button>
+        <button class="stab" data-type="cleaning">🧹 نظافت</button>
+      </div>
+      <div class="search-fields">
+        <div class="field">
+          <label>کجایید؟</label>
+          <input id="dest" placeholder="شهر، منطقه یا نام اقامتگاه" value="تهران">
+        </div>
+        <div class="field">
+          <label>ورود</label>
+          <input type="date" id="checkin" value="2026-11-20">
+        </div>
+        <div class="field">
+          <label>خروج</label>
+          <input type="date" id="checkout" value="2026-11-23">
+        </div>
+        <div class="field">
+          <label>میهمانان</label>
+          <select id="guests"><option>۲ مهمان</option><option>۱ مهمان</option><option>۳ مهمان</option><option>۴+ مهمان</option></select>
+        </div>
+        <button class="btn btn-primary search-btn" onclick="doSearch()">🔍 جستجو</button>
+      </div>
+      <div class="search-hint">💡 پیشنهاد هوشمند: بر اساس سفر قبلتان، <b>شمiran</b> را پیشنهاد میدهیم</div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust bar -->
+<section class="trust">
+  <div class="container trust-grid">
+    <div><b>۹۰٪</b><span>اتوماسیون کامل</span></div>
+    <div><b>۱۰+</b><span>مدل کسبوکار</span></div>
+    <div><b>۲۴/۷</b><span>چت بات هوشمند</span></div>
+    <div><b>۳ دقیقه</b><span>ثبت اقامتگاه</span></div>
+  </div>
+</section>
+
+<!-- Explore -->
+<section class="section" id="explore">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">انتخابهای برتر</span>
+        <h2>اقامتگاههای پیشنهادی برای you</h2>
+        <p id="resultLine">۱۲ اقامتگاه در تهران · قیمتگذاری شده توسط AI</p>
+      </div>
+      <div class="filters">
+        <button class="chip active" data-filter="all">همه</button>
+        <button class="chip" data-filter="loft">لوفت</button>
+        <button class="chip" data-filter="villa">ویلا</button>
+        <button class="chip" data-filter="apartment">آپارتمان</button>
+        <button class="chip" data-filter="cabin">کلبه</button>
+      </div>
+    </div>
+    <div class="grid" id="listings"></div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section soft" id="features">
+  <div class="container">
+    <div class="sec-head center">
+      <div><span class="kicker">چگونه کار میکند؟</span><h2>در سه قدم، اقامتتان رزرو است</h2></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">۱</div><h3>جستجو کنید</h3><p>فیلترهای هوشمند و نقشه، بهترین گزینه را در ثانیها نشانتان میدهند.</p></div>
+      <div class="step"><div class="step-num">۲</div><h3>قیمت AI ببینید</h3><p>قیمت پویا بر اساس تقاضا، فصل و رقبا — شفاف و بدون هزینه پنهان.</p></div>
+      <div class="step"><div class="step-num">۳</div><h3>رزرو آنی</h3><p>پرداخت امن، تأیید خودکار و کد درب بلافاصله ارسال میشود.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI feature cards -->
+<section class="section" id="ai">
+  <div class="container">
+    <div class="sec-head"><div><span class="kicker">هوش مصنوعی در قلب پلتفرم</span><h2>ما کارها را انجام میدهیم، شما لذت ببرید</h2></div></div>
+    <div class="ai-grid">
+      <div class="ai-card"><div class="ai-ico">🧠</div><h3>قیمتگذاری پویا</h3><p>مدل یادگیری ماشین قیمت را هر ۶ ساعت با تقاضا و رقبا بهروز میکند.</p><span class="tag">خودکار</span></div>
+      <div class="ai-card"><div class="ai-ico">🪪</div><h3>تأیید مدارک با OCR</h3><p>مدارک میزبان در ثانیها خوانده و تأیید میشود؛ کیفیت پایین=self retry ربات.</p><span class="tag">خودکار</span></div>
+      <div class="ai-card"><div class="ai-ico">💬</div><h3>چت بات ۲۴/۷</h3><p>به تمام سؤالات شما پاسخ میدهد و تنها اختلافها را به انسان میسپارد.</p><span class="tag">خودکار</span></div>
+      <div class="ai-card"><div class="ai-ico">🎯</div><h3>پیشنهددهی شخصی</h3><p>بر اساس سلیقه و سفرهای قبلتان، دقیقاً آنچه_postulate میخواهید پیشنهاد میشود.</p><span class="tag">خودکار</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Host CTA -->
+<section class="host" id="host">
+  <div class="container host-inner">
+    <div class="host-copy">
+      <span class="kicker light">برای میزبانان</span>
+      <h2>اقامتگاهتان را در ۳ دقیقه آنلاین کنید</h2>
+      <p>عکسها را آپلود کنید، AI عنوان، توضیحات و قیمت اولیه را مینویسد. مدارک هم بهصورت خودکار تأیید میشود.</p>
+      <ul class="checks"><li>✓ بدون هزینه راهاندازی</li><li>✓ تسویه هفتگی</li><li>✓ پشتیبانی هوشمند</li></ul>
+      <button class="btn btn-light" onclick="openHost()">شروع ثبت اقامتگاه</button>
+    </div>
+    <div class="host-demo" id="hostDemo">
+      <div class="demo-head"><span class="demo-dot"></span>AI در حال کار...</div>
+      <div class="demo-steps" id="demoSteps">
+        <div class="dstep done">✓ عکسها دریافت شد</div>
+        <div class="dstep done">✓ عنوان و توضیحات تولید شد</div>
+        <div class="dstep done">✓ مدارک تأیید شد (OCR)</div>
+        <div class="dstep done">✓ قیمت پیشنهادی: ۴۲۰٬۰۰۰ تومان/شب</div>
+        <div class="dstep ok">🎉 اقامتگاه شما منتشر شد!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Support -->
+<section class="section" id="support">
+  <div class="container support-inner">
+    <div><span class="kicker">همیشه کنارتانیم</span><h2>سؤالی دارید؟ چت بات ما پاسخ میدهد</h2><p>برای تست، پیامی در چت بات ارسال کنید (گوشه پایین سمت چپ).</p></div>
+    <button class="btn btn-primary" onclick="toggleChat()">چت بات را باز کنید</button>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container foot-inner">
+    <div><div class="logo"><span class="logo-mark">K</span> کیان<span class="logo-light">اقامت</span></div><p>رزروی هوشمند، اقامتی به یادماندنی.</p></div>
+    <div class="foot-links"><a href="#explore">جستجو</a><a href="#host">میزبان شوید</a><a href="#features">فناوری</a><a href="#support">پشتیبانی</a></div>
+    <div class="copy">© ۲۰۲۶ کیان اقامت · ساخته شده با هوش مصنوعی</div>
+  </div>
+</footer>
+
+<!-- Chatbot -->
+<div class="chat-widget" id="chatWidget">
+  <button class="chat-fab" onclick="toggleChat()" id="chatFab">💬</button>
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-head"><div><b>دستیار کیان</b><small><span class="online"></span> آنلاین · ۲۴/۷</small></div><button onclick="toggleChat()">✕</button></div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot">سلام! من دستیار کیانم 👋 چطور میتونم کمکتون کنم؟<div class="quick"><button onclick="quick('وضعیت رزرو')">وضعیت رزرو</button><button onclick="quick('تغییر تاریخ')">تغییر تاریخ</button><button onclick="quick('قیمت')">قیمتگذاری</button></div></div>
+    </div>
+    <div class="chat-input"><input id="chatInput" placeholder="پیامتان را بنویسید..." onkeydown="if(event.key==='Enter')sendChat()"><button onclick="sendChat()">➤</button></div>
+  </div>
+</div>
+
+<!-- Booking Modal -->
+<div class="overlay" id="bookOverlay" onclick="if(event.target===this)closeBook()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeBook()">✕</button>
+    <div class="modal-body" id="bookBody"></div>
+  </div>
+</div>
+
+<!-- Host Modal -->
+<div class="overlay" id="hostOverlay" onclick="if(event.target===this)closeHost()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeHost()">✕</button>
+    <div class="modal-body" id="hostBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
